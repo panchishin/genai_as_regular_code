@@ -2,14 +2,11 @@ from llm_service import LLM
 
 print("""
 Previously we classified items as ANIMAL, VEGETABLE, or MINERAL but we didn't do so well with "The Rock".
-Let's try to improve our classifier by tweaking the directive.
-This is the art of 'Prompt Engineering'.
-We are going to approach this in a unit-testish way.
 
 In a business setting, you would likely have some examples of scenarios where the classifier failed, 
 customer feedback, or some other data to guide you.
 
-As you change your directive (which is what we are calling our prompt) you will want 
+As you try to improve your directive (which is what we are calling our prompt) you will want 
 to make sure it continues to work on the previous test cases and any new failure cases you find.
 
 Using a unit-testish approach can help you make sure you are improving your model and not breaking it.
