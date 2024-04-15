@@ -2,11 +2,11 @@ from llm_service import LLM
 print("""
 
 Let's use our LLM to classify email messages as SPAM or SAFE.
-Again, the setup is super easy.  We create a new LLM handler with a simple English directive.
+Again, the setup is super easy.  We create a new LLM handler with a simple English prompt.
 Then we can use it to classify email messages as SPAM or SAFE.
 """)
 
-spam_classifier = LLM(directive="Reply to my following message as either SPAM or SAFE.  The message is an email text.")
+spam_classifier = LLM(prompt="Reply to my following message as either SPAM or SAFE.  The message is an email text.")
 
 email = "Dear Contest Winner!  You have won a free trip to the Bahamas.  Please provide your bank account information to claim your prize."
 print("\nEmail text:", email)

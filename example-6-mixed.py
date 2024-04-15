@@ -21,7 +21,7 @@ def fast_spam_classifier(email, user_name):
 
     return "UNKNOWN"
 
-slow_spam_classifier = LLM(directive="Reply to my following message as either SPAM or SAFE.  The message is an email text.").process
+slow_spam_classifier = LLM(prompt="Reply to my following message as either SPAM or SAFE.  The message is an email text.").process
 
 def spam_classifier(email, user_name):
     result = fast_spam_classifier(email, user_name)

@@ -7,7 +7,7 @@ Not just spam or safe, let's classify items as ANIMAL, VEGETABLE, or MINERAL.
 
 def classify_item(item):
     # our handler
-    item_classifier = LLM(directive="Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  The message is a description of an object.")
+    item_classifier = LLM(prompt="Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  The message is a description of an object.")
 
     # classify the item as ANIMAL, VEGETABLE, MINERAL or UNKNOWN
     response = item_classifier.process(data=item)

@@ -2,12 +2,12 @@ from llm_service import LLM
 import json
 
 print("""
-Lastly, we can do a lot more than just classification.
+We can do a lot more than just classification.
 In this example we will do some error handling,
 specifically fixing syntax errors in json data.
 """)
 
-fix_json = LLM(directive="Fix the syntax errors in the following json data", format="json")
+fix_json = LLM(prompt="Fix the syntax errors in the following json data", format="json")
 
 data_to_parse = (
     '{"name": "John", "age": 30, "city": "New York"}',

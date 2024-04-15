@@ -6,17 +6,17 @@ Previously we classified items as ANIMAL, VEGETABLE, or MINERAL but we didn't do
 In a business setting, you would likely have some examples of scenarios where the classifier failed, 
 customer feedback, or some other data to guide you.
 
-As you try to improve your directive (which is what we are calling our prompt) you will want 
-to make sure it continues to work on the previous test cases and any new failure cases you find.
+As you try to improve your prompt you will want to make sure it continues to work on the previous test
+cases and any new failure cases you find.
 
 Using a unit-testish approach can help you make sure you are improving your model and not breaking it.
 
-We will start with the previous directive then try variations.  Press enter to continue after each test.
+We will start with the previous prompt then try variations.  Press enter to continue after each test.
 """)
 
 class Classifier:
-    def __init__(self, directive):
-        self.llm = LLM(directive=directive)
+    def __init__(self, prompt):
+        self.llm = LLM(prompt=prompt)
 
     def classify_item(self, item):
         response = self.llm.process(data=item)
@@ -38,10 +38,10 @@ things_and_classification = {
 }
 
 
-def score_directive(directive):
+def score_prompt(prompt):
     correct = 0
     total = 0
-    classifier = Classifier(directive)
+    classifier = Classifier(prompt)
     for thing, classification in things_and_classification.items():
         prediction = classifier.classify_item(thing)
         total += 1
@@ -53,27 +53,27 @@ def score_directive(directive):
     return correct / total
 
 
-directive = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  The message is a description of an object."
-print("\nDefault directive:", directive)
-print("Score for default directive:", score_directive(directive))
+prompt = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  The message is a description of an object."
+print("\nDefault prompt:", prompt)
+print("Score for default prompt:", score_prompt(prompt))
 
 x = input("Press enter to continue...")
 
-directive = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  Pay attention to famous movie stars.  The message is a description of an object."
-print("\nAlternate directive:", directive)
-print("Score for custom directive:", score_directive(directive))
+prompt = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  Pay attention to famous movie stars.  The message is a description of an object."
+print("\nAlternate prompt:", prompt)
+print("Score for custom prompt:", score_prompt(prompt))
 
 x = input("Press enter to continue...")
 
-directive = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  The message is a description of an object or the name of a person."
-print("\nAlternate directive:", directive)
-print("Score for custom directive:", score_directive(directive))
+prompt = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  The message is a description of an object or the name of a person."
+print("\nAlternate prompt:", prompt)
+print("Score for custom prompt:", score_prompt(prompt))
 
 x = input("Press enter to continue...")
 
-directive = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  Music, movie, and wrestling stars are ANIMALS."
-print("\nAlternate directive:", directive)
-print("Score for custom directive:", score_directive(directive))
+prompt = "Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  Music, movie, and wrestling stars are ANIMALS."
+print("\nAlternate prompt:", prompt)
+print("Score for custom prompt:", score_prompt(prompt))
 
 print("""
 Done!

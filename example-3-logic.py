@@ -8,7 +8,7 @@ Read email messages from files in the inbox folder
 If a message is spam, move it to the spam folder otherwise move it to the safe folder
 """)
 
-spam_classifier = LLM(directive="Reply to my following message as either SPAM or SAFE.  The message is an email text.")
+spam_classifier = LLM(prompt="Reply to my following message as either SPAM or SAFE.  The message is an email text.")
 
 for file in os.listdir("email/inbox"):
     with open("email/inbox/" + file, "r") as f:
