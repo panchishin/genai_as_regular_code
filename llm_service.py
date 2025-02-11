@@ -8,7 +8,7 @@ class LLM:
     Format is either None or "json"
     """
 
-    def __init__(self, *, prompt, model="llama2:13b-chat-q6_K", format=None):
+    def __init__(self, *, prompt, model="llama3:8b-instruct-fp16", format=None):
         self.prompt = prompt
         self.model = model
         self.format = format
