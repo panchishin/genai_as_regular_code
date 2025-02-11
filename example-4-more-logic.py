@@ -10,7 +10,7 @@ def classify_item(item):
     item_classifier = LLM(prompt="Reply to my following message as either 'ANIMAL', 'VEGETABLE', 'MINERAL'.  The message is a description of an object.")
 
     # classify the item as ANIMAL, VEGETABLE, MINERAL or UNKNOWN
-    response = item_classifier.process(data=item)
+    response = item_classifier.process(data=item).upper()
     if response in ["ANIMAL", "VEGETABLE", "MINERAL"]:
         return response
     else:

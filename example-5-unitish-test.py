@@ -43,7 +43,7 @@ def score_prompt(prompt):
     total = 0
     classifier = Classifier(prompt)
     for thing, classification in things_and_classification.items():
-        prediction = classifier.classify_item(thing)
+        prediction = classifier.classify_item(thing).upper()
         total += 1
         if prediction == classification:
             correct += 1
