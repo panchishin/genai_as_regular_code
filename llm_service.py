@@ -1,6 +1,8 @@
 import json
 import requests
 
+default_models= ["qwen2.5-coder:7b", "llama3:8b-instruct-fp16"]
+
 class LLM:
     """
     A class to interact with a local LLM service using the Ollama.ai
@@ -8,7 +10,7 @@ class LLM:
     Format is either None or "json"
     """
 
-    def __init__(self, *, prompt, model="llama3:8b-instruct-fp16", format=None):
+    def __init__(self, *, prompt, model=default_models[0], format=None):
         self.prompt = prompt
         self.model = model
         self.format = format

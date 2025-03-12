@@ -10,8 +10,12 @@ You can install Ollama locally from https://ollama.ai
 
 Once installed you can load a wide variety of language models.
 
-For these examples use the following zsh command that loads llama3:8b-instruct-fp16 which at the time of writing is a fairly powerful model that runs fairly fast on local hardward.  You'll need about 8G of free RAM to run it, but that should be very doable on our hardware.
+For these examples use the following zsh command that loads the ollama file which at the time of writing is a fairly powerful model that runs fairly fast on local hardward.  You'll need about 8G of free RAM to run it, but that should be very doable on our hardware.
 
-`ollama run llama3:8b-instruct-fp16`
+I recommend Python >= 3.9
+```bash
+ollama run qwen2.5-coder:7b
+pip install -r requirements.txt
+```
 
 Once you run that on the command line the python files should work fine
